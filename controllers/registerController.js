@@ -13,7 +13,6 @@ exports.getRegister = (req, res) => {
 exports.postRegister = (req, res) => {
       const { username, password } = req.body;
       if (username){
-            // valid = true
             var sql = "INSERT INTO `users` (`username`, `password`) VALUES ?";
             var values = [username,password]; 
             conn.query('SELECT * FROM users WHERE username = `username`',[username],function(error,results,fields){
