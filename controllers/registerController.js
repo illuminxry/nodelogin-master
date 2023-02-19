@@ -18,6 +18,7 @@ exports.postRegister = (req, res) => {
             conn.query('SELECT * FROM users WHERE username = `username`',[username],function(error,results,fields){
               if(results.length > 0){
                   res.send('Username already taken');
+                  console.log("username already taken");
               }
               else{
                 conn.query(sql,[values],function(err,result){
