@@ -1,4 +1,11 @@
-const conn = require("../db");
+const mysql = require("mysql");
+
+const conn = mysql.createConnection({
+      host: 'localhost',
+      database: 'nodelogin',
+      user: 'root',
+      password: ''
+});
 
 exports.getRegister = (req, res) => {
       res.render('register');
