@@ -6,10 +6,10 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 const loginRoutes = require('./routes/login')
-
+const registerRoutes = require('./routes/register')
 
 app.use('/', loginRoutes);
-
+app.use('/register',registerRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
