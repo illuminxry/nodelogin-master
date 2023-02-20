@@ -9,7 +9,7 @@ const loginRoutes = require('./routes/login')
 const registerRoutes = require('./routes/register')
 
 app.use('/', loginRoutes);
-// app.use('/register',registerRoutes);
+app.use('/',registerRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
