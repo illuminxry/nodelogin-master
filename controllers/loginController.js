@@ -19,6 +19,7 @@ exports.postLogin = (req, res) => {
 
       conn.query('SELECT * FROM users WHERE username = `username` AND password = `password`',[username,password],function(error,results,fields){
         if(results.length > 0){
+          console.log(username,password);
           res.render('home');
         }
         else{
