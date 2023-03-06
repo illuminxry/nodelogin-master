@@ -10,6 +10,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script>
+      var myApp = angular.module("myapp", []);
+      myApp.controller("PasswordController", function($scope) {
+
+          var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+          var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+          $scope.passwordStrength = {
+              "float": "left",
+              "width": "100px",
+              "height": "25px",
+              "margin-left": "5px"
+          };
+
+          $scope.analyze = function(value) {
+              if(strongRegex.test(value)) {
+                  $scope.passwordStrength["background-color"] = "green";
+              } else if(mediumRegex.test(value)) {
+                  $scope.passwordStrength["background-color"] = "orange";
+              } else {
+                  $scope.passwordStrength["background-color"] = "red";
+              }
+          };
+
+      });
+  </script>
   </head>
 
   <body>
@@ -29,9 +56,11 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
+
                           <input type="email" id="email" class="form-control" name="email" size="65"
                             pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
                             required />
+
                           <label class="form-label">Email</label>
                           <div class="valid-feedback">
                             Looks good!
@@ -43,11 +72,13 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="password" class="form-control" name="password" required />
+                          <input type="password" id="password" ng-model="password" ng-change="analyze(password)" class="form-control" name="password" required />
                           <label class="form-label">Password</label>
+                          <div ng-style="passwordStrength"></div>
                           <div class="valid-feedback">
                             Looks good!
                           </div>
+                          <span id="message" style="color:red"> </span>
                         </div>
                       </div>
 
