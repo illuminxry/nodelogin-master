@@ -1,3 +1,4 @@
+const { encrypt } = require('caesar-encrypt') ;
 const mysql = require("mysql");
 
 const conn = mysql.createConnection({
@@ -6,7 +7,7 @@ const conn = mysql.createConnection({
       user: 'root',
       password: ''
 });
-
+const encryptkey = 10;
 exports.getRegister = (req, res) => {
       res.render('register');
 };
@@ -17,8 +18,9 @@ exports.postRegister = (req, res) => {
                   res.send("email already taken");
             }
             else{
-                  var sql = 'INSERT INTO `users` (`email`, `password`,`userlevel`) VALUES (?,?,?)';
-                  var values = [email, password,userlevel];
+                  var pw = encrypt(password,encryptkey);
+                  var sql = 'INSERT INTO `users` (`email`, `password`,`userlevel`,`shift`) VALUES (?,?,?,?)';
+                  var values = [email, pw, userlevel, encryptkey];
                   conn.connect(function(err){
                         conn.query(sql, values, function (err, result){
                               if(err) throw err;
@@ -32,31 +34,4 @@ exports.postRegister = (req, res) => {
             }
       }); 
 };
-// exports.postRegister = (req, res) => {
-//       const { username, password } = req.body;
-//       if (username){
-//             var sql = "INSERT INTO `users` (`username`, `password`) VALUES ?";
-//             var values = [username,password]; 
-//             conn.query('SELECT * FROM users WHERE username = `username`',[username],function(error,results,fields){
-//               if(results.length > 0){
-//                   res.send('Username already taken');
-//                   console.log("username already taken");
-//               }
-//               else{
-//                 conn.query(sql,[values],function(err,result){
-//                   if (err) {
-//                         throw err;
-                        
-//                   } else {
-//                         console.log("record inserted" + result.affectedRows);
-//                   }
-//                 });
-//               }
-//               res.end();
-//             });
-//           }
-//           else{
-//             res.send('Please enter a username and password');
-//             res.end();
-//           }
-// };
+
