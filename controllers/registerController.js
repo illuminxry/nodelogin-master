@@ -13,7 +13,7 @@ exports.getRegister = (req, res) => {
 exports.postRegister = (req, res) => {
       const { email, password ,userlevel} = req.body;
       conn.query('SELECT * FROM users where email = ?',[email],function(error,results,fields){
-            if(results.length > 0){
+            if(results.length > 0){ 
                   res.send("email already taken");
             }
             else{
