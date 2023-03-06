@@ -2,7 +2,7 @@ const mysql = require("mysql");
 
 const conn = mysql.createConnection({
       host: 'localhost',
-      database: 'nodelogin',
+      database: 'userlogin',
       user: 'root',
       password: ''
 });
@@ -13,24 +13,24 @@ exports.getLogin = (req, res) => {
 
 exports.postLogin = (req, res) => {
 
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (username && password){
+    if (email && password){
 
-      conn.query('SELECT * FROM users WHERE username = ? AND password = ?',[username,password],function(error,results,fields){
+      conn.query('SELECT * FROM users WHERE email = ? AND password = ?',[email,password],function(error,results,fields){
         if(results.length > 0){
-          console.log(username,password);
+          console.log(email,password);
           res.render('home');
         }
         else{
-          res.send('Incorrect Username and/or Password');
+          res.send('Incorrect Email and/or Password');
           console.log(error);
         }
         res.end();
       });
     }
     else{
-      res.send('Please enter a username and password');
+      res.send('Please enter a Email and password');
       res.end();
     }
 };

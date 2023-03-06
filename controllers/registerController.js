@@ -2,7 +2,7 @@ const mysql = require("mysql");
 
 const conn = mysql.createConnection({
       host: 'localhost',
-      database: 'nodelogin',
+      database: 'userlogin',
       user: 'root',
       password: ''
 });
@@ -11,20 +11,22 @@ exports.getRegister = (req, res) => {
       res.render('register');
 };
 exports.postRegister = (req, res) => {
-      const { username, password } = req.body;
-      conn.query('SELECT * FROM users where username = ?',[username],function(error,results,fields){
+      const { email, password ,userlevel} = req.body;
+      conn.query('SELECT * FROM users where email = ?',[email],function(error,results,fields){
             if(results.length > 0){
-                  res.send("Username already taken");
+                  res.send("email already taken");
             }
             else{
-                  var sql = 'INSERT INTO `users` (`username`, `password`) VALUES (?,?)';
-                  var values = [username, password];
+                  var sql = 'INSERT INTO `users` (`email`, `password`,`userlevel`) VALUES (?,?,?)';
+                  var values = [email, password,userlevel];
                   conn.connect(function(err){
                         conn.query(sql, values, function (err, result){
                               if(err) throw err;
                               console.log("entry added");
+                              console.log("User: " + email);
+                              console.log("Password: " + password);
                               conn.destroy();
-                              res.render('home');
+                              res.render('login');
                         })
                   });
             }
