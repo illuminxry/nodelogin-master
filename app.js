@@ -7,9 +7,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const loginRoutes = require('./routes/login')
 const registerRoutes = require('./routes/register')
+const homeRoutes = require('./routes/home')
 
 app.use('/', loginRoutes);
 app.use('/',registerRoutes);
+app.use('/',homeRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
