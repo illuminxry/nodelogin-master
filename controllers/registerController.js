@@ -1,19 +1,23 @@
 const { encrypt } = require('caesar-encrypt') ;
 const mysql = require("mysql");
 
-const conn = mysql.createConnection({
-      host: 'localhost',
-      database: 'userlogin',
-      user: 'root',
-      password: ''
-});
+
 const encryptkey = 10;
 exports.getRegister = (req, res) => {
       res.render('register');
 };
 exports.postRegister = (req, res) => {
       const { email, password ,userlevel} = req.body;
+
+      const conn = mysql.createConnection({
+            host: 'localhost',
+            database: 'nodelogin',
+            user: 'root',
+            password: ''
+      });
+
       conn.query('SELECT * FROM users where email = ?',[email],function(error,results,fields){
+            console.log(results);
             if(results.length > 0){ 
                   res.send("email already taken");
             }
