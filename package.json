@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "caesar-encrypt": "^0.0.2",
+    "cors": "^2.8.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
@@ -9,10 +11,19 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illuminxry/nodelogin-master.git"
+  },
+  "bugs": {
+    "url": "https://github.com/illuminxry/nodelogin-master/issues"
+  },
+  "homepage": "https://github.com/illuminxry/nodelogin-master#readme",
+  "description": "prelim project kay sir chavez"
 }
