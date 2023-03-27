@@ -1,9 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Home</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Home</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+
+
+      <script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js"></script>
+
+
 </head>
+
 <body>
-    <h1>Successfully logged in</h1>
+      <div>
+            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                  <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#navbarDark" aria-controls="navbarDark" aria-expanded="false"
+                              aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse show" id="navbarDark">
+                              <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                                    <li class="nav-item">
+                                          <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                          <a class="nav-link" href="#">Features</a>
+                                    </li>
+                                    <li class="nav-item">
+                                          <a class="nav-link disabled" href="#" tabindex="-1"
+                                                aria-disabled="true">Disabled</a>
+                                    </li>
+                              </ul>
+                              <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="Search"
+                                          aria-label="Search">
+                                    <button class="btn btn-outline-light" type="submit">Search</button>
+                              </form>
+                        </div>
+                  </div>
+            </nav>
+      </div>
+      <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                  <h1 class="display-3">Form</h1>
+                  <p class="lead">Enter your details</p>
+                  <hr class="my-2">
+            </div>
+      </div>
+      <div class="container">
+            <form class="row g-3 needs-validation" action="/home" method="post">
+                  <div class="col-md-4">
+                        <label for="firstname" class="form-label">First name</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+" required>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="middlename" class="form-label">Middle name</label>
+                        <input type="text" class="form-control" name="middlename" pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+" id="middlename" required>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="lastname" class="form-label">Last name</label>
+                        <input type="text" class="form-control" name="lastname" pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+" id="lastname" required>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="birthdate" class="form-label">Birthdate</label>
+                        <input type="date" class="form-control" name="birthdate" id="birthdate" required>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" name="gender" id="gender" required>
+                              <option value="" selected disabled>--- Choose Option ---</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Does not prefer to say">Does not prefer to say</option>
+                              <option value="Others">Others</option>
+                        </select>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="civilstatus" class="form-label">Civil Status</label>
+                        <select class="form-select" name="civilstatus" id="civilstatus" required>
+                              <option value="" selected disabled>--- Choose Option ---</option>
+                              <option value="Single">Single</option>
+                              <option value="Married">Married</option>
+                              <option value="Annulled">Annulled</option>
+                              <option value="Widowed">Widowed</option>
+                        </select>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" name="country" id="country" required>
+                              <option value="" selected disabled>--- Choose Option ---</option>
+                              <option value="Philippines">Philippines</option>
+                              <option value="Pinas">Pinas</option>
+                        </select>
+                        <div class="invalid-feedback">
+                              Please provide a valid city.
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="region" class="form-label">Region</label>
+                        <select class="form-select" name="region" id="region" required>
+
+                        </select>
+                        <div class="invalid-feedback">
+                              Please select a valid region.
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="region" class="form-label">Province</label>
+                        <select class="form-select" name="province" id="province" required>
+
+                        </select>
+                        <div class="invalid-feedback">
+                              Please select a valid province.
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="region" class="form-label">City</label>
+                        <select class="form-select" name="city" id="city" required>
+
+                        </select>
+                        <div class="invalid-feedback">
+                              Please select a valid city.
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="region" class="form-label">Barangay</label>
+                        <select class="form-select" name="barangay" id="barangay" required>
+
+                        </select>
+                        <div class="invalid-feedback">
+                              Please select a valid barangay.
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="zipcode" class="form-label">Zipcode</label>
+                        <input type="number" class="form-control" name="zipcode" id="zipcode" min="1000" max="9999" required>
+                        <div class="invalid-feedback">
+                              Please provide a valid zipcode.
+                        </div>
+                  </div>
+                  <div class="col-md-12">
+                        <label for="address" class="form-label">Address</label>
+                        <div class="input-group">
+                              <input type="text" class="form-control" name="address" id="address" required>
+                              <div class="invalid-feedback">
+                                    Please provide an address.
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-4">
+                        <label for="" class="form-label">Hobby/ies</label>
+                        <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="basketball">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                    Basketball
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="swimming" >
+                              <label class="form-check-label" for="flexCheckChecked">
+                                    Swimming
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="badminton" >
+                              <label class="form-check-label" for="badminton">
+                                    Badminton
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="listeningtomusic" >
+                              <label class="form-check-label" for="listeningtomusic">
+                                    Listening to music
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="bingewatching" >
+                              <label class="form-check-label" for="bingewatching">
+                                    Bingewatching
+                              </label>
+                            </div>
+                        <div class="valid-feedback">
+                              Looks good!
+                        </div>
+                  </div>
+                  <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                  </div>
+            </form>
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+      <!-- <script type="text/javascript" src="../../jquery.ph-locations.js"></script> -->
+      <script type="text/javascript"
+            src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
+      <script type="text/javascript">
+
+            var my_handlers = {
+
+                  fill_provinces: function () {
+
+                        var region_code = $(this).val();
+                        $('#province').ph_locations('fetch_list', [{ "region_code": region_code }]);
+
+                  },
+
+                  fill_cities: function () {
+
+                        var province_code = $(this).val();
+                        $('#city').ph_locations('fetch_list', [{ "province_code": province_code }]);
+                  },
+
+
+                  fill_barangays: function () {
+
+                        var city_code = $(this).val();
+                        $('#barangay').ph_locations('fetch_list', [{ "city_code": city_code }]);
+                  }
+            };
+
+            $(function () {
+                  $('#region').on('change', my_handlers.fill_provinces);
+                  $('#province').on('change', my_handlers.fill_cities);
+                  $('#city').on('change', my_handlers.fill_barangays);
+
+                  $('#region').ph_locations({ 'location_type': 'regions' });
+                  $('#province').ph_locations({ 'location_type': 'provinces' });
+                  $('#city').ph_locations({ 'location_type': 'cities' });
+                  $('#barangay').ph_locations({ 'location_type': 'barangays' });
+
+                  $('#region').ph_locations('fetch_list');
+            });
+      </script>
+      <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict';
+          window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        });
+      </script>
 </body>
+
 </html>
