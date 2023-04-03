@@ -58,8 +58,8 @@ exports.postHome = (req, res) => {
         password: ''
     });
 
-    var sql = 'INSERT INTO `userdetails` (`firstname`,`middlename`,`lastname`,`birthdate`,`gender`,`civilstatus`,`country`,`region`,`province`,`city`,`barangay`,`zipcode`,`address`,`keya`,`keyb`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
-    var values = [fname, mname, lname, birthdate, gender, civilstatus, country, region, province, city, barangay, zipcode, address, keya, keyb];
+    var sql = 'INSERT INTO `userdetails` (`firstname`,`middlename`,`lastname`,`birthdate`,`gender`,`civilstatus`,`country`,`region`,`province`,`city`,`barangay`,`zipcode`,`address`,`hobbies`,`keya`,`keyb`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+    var values = [fname, mname, lname, birthdate, gender, civilstatus, country, region, province, city, barangay, zipcode, address, JSON.stringify(hobbiesrray), keya, keyb];
     conn.query(sql, values, function (err, result) {
         if (err) throw err;
         console.log("entry added");
